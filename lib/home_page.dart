@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
     MentorModel(
         name: "Jenny Leiefser",
         image: "assets/images/face_4.jpg",
-        type: "Lawer",
+        type: "lawyer",
         price: 80,
         ratings: 5),
   ];
@@ -59,9 +59,15 @@ class HomePage extends StatelessWidget {
             SizedBox(width: 16),
             Icon(Icons.search),
             SizedBox(width: 12),
-            Text(
-              "Search",
-              style: GoogleFonts.inter(fontSize: 17),
+            SizedBox(
+              width: MediaQuery.of(context).size.width - 150,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Search",
+                  hintStyle: GoogleFonts.inter(fontSize: 17),
+                  border: InputBorder.none
+                ),
+              ),
             ),
             Spacer(),
             Container(
@@ -75,7 +81,7 @@ class HomePage extends StatelessWidget {
                     quarterTurns: 1,
                     child: Icon(MIcons.sliders, color: Colors.white)))
           ],
-        ));
+        ),);
   }
 
   Widget _category(context) {
@@ -114,7 +120,9 @@ class HomePage extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ProfilePage(model:model)));
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ProfilePage(model: model)));
         },
         child: Row(
           children: <Widget>[
@@ -122,8 +130,17 @@ class HomePage extends StatelessWidget {
               height: 75,
               width: 75,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(image: AssetImage(model.image))),
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: AssetImage(model.image),
+                  ),
+                  boxShadow: <BoxShadow>[
+                    BoxShadow(
+                      blurRadius: 10,
+                      color: Colors.grey.shade400,
+                      offset: Offset(4, 4),
+                    )
+                  ]),
             ),
             SizedBox(
               width: 12,
@@ -152,7 +169,7 @@ class HomePage extends StatelessWidget {
                     style: GoogleFonts.inter(
                         fontWeight: FontWeight.w500,
                         fontSize: 14,
-                        color: MColor.green)),
+                        color: Colors.green.shade700)),
               ],
             )
           ],
@@ -165,7 +182,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
+        child: SingleChildScrollView(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

@@ -11,11 +11,15 @@ class ProfilePage extends StatelessWidget {
   Widget _appBar(context) {
     return Row(
       children: <Widget>[
-        IconButton(
-          onPressed: (){
+        GestureDetector(
+          onTap: () {
             Navigator.pop(context);
           },
-          icon:Icon(MIcons.keyboard_arrow_left),),
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 12),
+            child: Icon(MIcons.keyboard_arrow_left),
+          ),
+        ),
         Spacer(),
         Icon(MIcons.heart_24),
       ],
@@ -35,11 +39,21 @@ class ProfilePage extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Container(
-              height: 75,
-              width: 75,
+              height: 85,
+              width: 85,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(image: AssetImage(model.image))),
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  image: AssetImage(model.image),
+                ),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    blurRadius: 10,
+                    color: Colors.grey.shade400,
+                    offset: Offset(4, 4),
+                  ),
+                ],
+              ),
             ),
             Spacer(),
             Container(
@@ -96,7 +110,9 @@ class ProfilePage extends StatelessWidget {
                 children: <Widget>[
                   Text(model.name,
                       style: GoogleFonts.inter(
-                          fontWeight: FontWeight.w600, fontSize: 13)),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                          height: 1.3)),
                   SizedBox(height: 5),
                   Text(model.type,
                       style: GoogleFonts.inter(
@@ -110,7 +126,7 @@ class ProfilePage extends StatelessWidget {
                   style: GoogleFonts.inter(
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
-                      color: MColor.green)),
+                      color: Colors.green.shade700)),
             ],
           ),
           SizedBox(height: 20),
@@ -118,10 +134,11 @@ class ProfilePage extends StatelessWidget {
               style: GoogleFonts.inter(
                   fontWeight: FontWeight.w600, fontSize: 15, height: 1.3)),
           SizedBox(height: 5),
-          Text(Constants.description,
+          Text("${Constants.description.substring(0,350)}",
               style: GoogleFonts.inter(
                   fontWeight: FontWeight.w300,
-                  fontSize: 10,
+                  fontSize: 12,
+                  height: 1.4,
                   color: Colors.black54)),
         ]);
   }
@@ -138,32 +155,46 @@ class ProfilePage extends StatelessWidget {
         SizedBox(height: 16),
         _achivmentCard(),
         SizedBox(height: 16),
-        _achivmentCard(),
-        SizedBox(height: 16),
       ],
     );
   }
 
   Widget _achivmentCard() {
     return Container(
-       padding: EdgeInsets.symmetric(vertical:12,horizontal: 12),
+      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: MColor.grey.withOpacity(.1),
       ),
       child: ListTile(
         contentPadding: EdgeInsets.zero,
-        leading:Container(
-          width:40,
-          alignment:Alignment.center,
-          child: Icon(MIcons.star_fill_16, color:MColor.yellow)
-        ),
+        leading: Container(
+            width: 40,
+            alignment: Alignment.center,
+            child: Icon(MIcons.star_fill_16, color: MColor.yellow)),
         title: Text("Supported 100+ startups",
             style:
                 GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: 15)),
         subtitle: Text(Constants.description.substring(0, 90),
             style:
                 GoogleFonts.inter(fontWeight: FontWeight.w400, fontSize: 12)),
+      ),
+    );
+  }
+
+  Widget _button() {
+    return FlatButton(
+      color: MColor.green,
+      onPressed: () {},
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Container(
+        height: 60,
+        alignment: Alignment.center,
+        child: Text("Hire Now",
+            style: GoogleFonts.inter(
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
+            )),
       ),
     );
   }
@@ -183,7 +214,9 @@ class ProfilePage extends StatelessWidget {
                 SizedBox(height: 20),
                 _description(),
                 SizedBox(height: 20),
-                _achivment()
+                _achivment(),
+                _button(),
+                SizedBox(height: 20),
               ],
             ),
           ),
