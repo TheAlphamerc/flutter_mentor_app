@@ -3,6 +3,11 @@
 Mentor app is created using flutter. App is a basically ui design implementation of [Mentor App](https://www.linkedin.com/posts/shruti-sharma-40a004114_ui-ux-uiux-activity-6715299763748691968-YanF/) designed by [Shruti Sharma](https://www.linkedin.com/in/shruti-sharma-40a004114/)
 
 
+## Download App ![GitHub All Releases](https://img.shields.io/github/downloads/Thealphamerc/flutter_mentor_app/total?color=green)
+<a href="https://github.com/TheAlphamerc/flutter_mentor_app/releases/download/v1.0.0/app-release.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
+## Video Url
+YouTube link :- [Flutter Mentor App](https://youtu.be/edwHh002SgQ)
+
 <img src="https://github.com/TheAlphamerc/flutter_mentor_app/blob/master/screenshots/appdesign.jpeg?raw=true"  /> 
 
 ## Screenshots
@@ -10,6 +15,8 @@ Mentor app is created using flutter. App is a basically ui design implementation
  HomePage              |  Profile Page 
 :-------------------------:|:-------------------------:
 ![](https://github.com/TheAlphamerc/flutter_mentor_app/blob/master/screenshots/screenshot_1.png?raw=true)|![](https://github.com/TheAlphamerc/flutter_mentor_app/blob/master/screenshots/screenshot_2.png?raw=true)
+
+
 
 ## Flutter projects
  Project Name        |Stars        
